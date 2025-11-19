@@ -20,7 +20,7 @@ const EXAMPLES: Example[] = [
   },
   {
     text: "The weather is nice today. I went to the store and bought some groceries.",
-    label: "Neutral Example",
+    label: "Happy Example",
   },
   {
     text: "I'm thrilled! This is amazing and wonderful, thank you so much!",
