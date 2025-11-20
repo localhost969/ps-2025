@@ -57,7 +57,7 @@ export default function Home() {
     setResult(null);
 
     try {
-      const res = await fetch("https://ps-2025-backend-production.up.railway.app/analyze", {
+      const res = await fetch("http://localhost:5000/analyze", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: textToAnalyze }),
@@ -87,7 +87,8 @@ export default function Home() {
 
   return (
     // Prevent unwanted horizontal scroll by hiding overflow on X axis
-    <div className={`${outfit.variable} ${jakarta.variable} ${greatVibes.variable} ${montserrat.variable} overflow-x-hidden min-h-screen font-body text-foreground bg-background selection:bg-primary selection:text-white`}>
+    <div className={`${outfit.variable} ${jakarta.variable} ${greatVibes.variable} ${montserrat.variable} overflow-x-hidden min-h-screen font-body text-foreground bg-background selection:bg-primary selection:text-white`} style={{ overflowX: 'clip' }}>
+      <div className="md:scale-125 md:origin-top" style={{ transformOrigin: 'top center' }}>
       <Head>
         <title>Sentiment Analyzer</title>
         <meta name="description" content="Analyze the sentiment of your text." />
@@ -101,7 +102,7 @@ export default function Home() {
       </nav> */}
 
       {/* Full-width hero section (background spans the entire viewport) */}
-      <section className="relative w-[100vw] overflow-hidden rounded-b-xl min-h-[320px] md:min-h-[560px]">
+      <section className="relative w-[100vw] overflow-hidden rounded-b-xl min-h-[320px] md:min-h-screen">
         <HeroBackground imageUrl="/hero.png" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-12 pt-30 md:pt-8 pb-24">
           <div className="text-center mb-8 space-y-8">
@@ -148,6 +149,7 @@ export default function Home() {
         {/* Examples section (outside the hero background) */}
         <ExamplesSection onExampleSelect={(text) => analyzeSentiment(text)} />
       </main>
+      </div>
     </div>
   );
 }
