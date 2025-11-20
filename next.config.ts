@@ -20,6 +20,23 @@ const nextConfig: ExtendedNextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  images: {
+    // Allow any external image origin for both https and http
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**", // allow any hostname over https
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "http",
+        hostname: "**", // allow any hostname over http
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

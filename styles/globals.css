@@ -80,3 +80,21 @@ button, a {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display), sans-serif;
 }
+
+/* Custom scrollbar to match theme */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
