@@ -57,7 +57,7 @@ export default function Home() {
     setResult(null);
 
     try {
-      const res = await fetch("http://localhost:5000/analyze", {
+      const res = await fetch("https://ps-2025-backend-production.up.railway.app/analyze", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: textToAnalyze }),
