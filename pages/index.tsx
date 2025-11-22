@@ -102,22 +102,22 @@ export default function Home() {
       </nav> */}
 
       {/* Full-width hero section (background spans the entire viewport) */}
-      <section className="relative w-[100vw] overflow-hidden rounded-b-xl min-h-[320px] md:min-h-screen">
+      <section className="relative w-screen overflow-hidden border-b-4 border-black min-h-80 md:min-h-screen bg-[#FFFDF5]">
         <HeroBackground imageUrl="/hero.png" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-12 pt-30 md:pt-8 pb-24">
-          <div className="text-center mb-8 space-y-8">
-            <h1 className="text-3xl md:text-5xl font-great-vibes font-normal text-slate-900 leading-tight">
-              How does your text feel?<span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-secondary"></span>
+          <div className="text-center mb-12 space-y-8">
+            <h1 className="text-5xl md:text-5xl font-black uppercase tracking-tighter text-black leading-none drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+              How does your text feel?<span className="text-secondary"></span>
             </h1>
             <p
-              className="text-base md:text-lg text-slate-600 max-w-md md:max-w-full mx-auto truncate whitespace-nowrap font-montserrat font-medium"
+              className="text-lg md:text-sm text-black max-w-md md:max-w-2xl mx-auto font-bold border-4 border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] uppercase tracking-wide md:whitespace-nowrap"
               title="Enter your text below to detect if it's Happy, Sad, or Neutral."
             >
               Enter your text below to detect if it's Happy, Sad, or Neutral.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <InputForm
               inputText={inputText}
               loading={loading}
@@ -133,6 +133,11 @@ export default function Home() {
         </div>
       </section>
 
+      <main className="max-w-7xl mx-auto px-4 md:px-12 pt-6 md:pt-8 pb-24">
+        {/* Examples section (outside the hero background) */}
+        <ExamplesSection onExampleSelect={(text) => analyzeSentiment(text)} />
+      </main>
+
       {/* Extension section - desktop/tablet and mobile versions */}
       {/* Desktop/Tablet: hidden on small screens */}
       <div className="max-w-7xl mx-auto px-4 md:px-12 py-6 md:py-8 hidden sm:block">
@@ -144,11 +149,6 @@ export default function Home() {
         {/* eslint-disable-next-line */}
         {require('../components/ExtensionSectionMobile').default({ extensionUrl: "https://github.com/localhost969/social-sentiment" })}
       </div>
-
-      <main className="max-w-7xl mx-auto px-4 md:px-12 pt-6 md:pt-8 pb-24">
-        {/* Examples section (outside the hero background) */}
-        <ExamplesSection onExampleSelect={(text) => analyzeSentiment(text)} />
-      </main>
       </div>
     </div>
   );

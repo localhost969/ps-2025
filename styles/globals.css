@@ -1,25 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  /* Professional & Positive Palette */
-  --background: #F8FAFC; /* Slate 50 - Clean, bright background */
-  --foreground: #0F172A; /* Slate 900 - High contrast text */
+  /* Neo-Brutalism Palette */
+  --background: #FFFDF5; /* Creamy off-white */
+  --foreground: #000000; /* Pure Black */
   
-  /* Primary: Indigo - Trustworthy, professional, yet vibrant */
-  --primary: #6366F1; 
+  /* Primary: Vibrant Purple */
+  --primary: #8B5CF6; 
   --primary-foreground: #FFFFFF;
   
-  /* Secondary: Teal - Fresh, positive, growth-oriented */
-  --secondary: #14B8A6; 
+  /* Secondary: Hot Pink */
+  --secondary: #FF49DB; 
   --secondary-foreground: #FFFFFF;
   
-  /* Accent: Amber - Energetic, attention-grabbing without being aggressive */
-  --accent: #F59E0B; 
-  --accent-foreground: #FFFFFF;
+  /* Accent: Bright Yellow */
+  --accent: #FFC82C; 
+  --accent-foreground: #000000;
 
-  /* Surface: Pure white for cards/sections to pop against the off-white bg */
+  /* Surface: White */
   --surface: #FFFFFF;
-  --surface-foreground: #1E293B;
+  --surface-foreground: #000000;
+
+  /* Neo-Brutalism Specifics */
+  --border-width: 3px;
+  --box-shadow: 5px 5px 0px 0px #000000;
+  --box-shadow-hover: 2px 2px 0px 0px #000000;
+  --radius: 0px; /* Sharp corners or slightly rounded */
 }
 
 @theme inline {
@@ -49,6 +55,8 @@ body {
   font-family: var(--font-body), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: radial-gradient(#000000 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 /* Mobile-specific helpers */
@@ -68,8 +76,7 @@ html, body {
 /* Improve focus outlines for accessibility on mobile */
 button:focus, input:focus, textarea:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
-  border-radius: 0.75rem;
+  box-shadow: var(--box-shadow);
 }
 
 /* Remove the gray highlight on iOS during taps for buttons/links */
@@ -79,11 +86,14 @@ button, a {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display), sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.05em;
 }
 
 /* Custom scrollbar to match theme */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 12px;
+  border-left: 3px solid #000;
 }
 
 ::-webkit-scrollbar-track {
@@ -91,10 +101,58 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #000000;
-  border-radius: 2px;
+  background: var(--primary);
+  border: 3px solid #000;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #000000;
+  background: var(--secondary);
+}
+
+/* Neo-Brutalist Utilities */
+.neo-box {
+  border: 3px solid #000;
+  box-shadow: 5px 5px 0px 0px #000;
+  transition: all 0.2s ease-in-out;
+  background-color: white;
+}
+
+.neo-box:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px 0px #000;
+}
+
+.neo-box:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px 0px #000;
+}
+
+.neo-button {
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0px 0px #000;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: all 0.1s;
+}
+
+.neo-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #000;
+}
+
+.neo-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px 0px #000;
+}
+
+.neo-input {
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0px 0px #000;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.neo-input:focus {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #000;
 }
